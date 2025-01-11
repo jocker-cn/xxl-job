@@ -21,10 +21,10 @@
 	
 	<insert id="save" parameterType="com.xxl.job.admin.core.model.XxlJobLogReport" useGeneratedKeys="true" keyProperty="id" >
 		INSERT INTO xxl_job_log_report (
-			`trigger_day`,
-			`running_count`,
-			`suc_count`,
-			`fail_count`
+			trigger_day,
+			running_count,
+			suc_count,
+			fail_count
 		) VALUES (
 			#{triggerDay},
 			#{runningCount},
@@ -37,12 +37,12 @@
 	</insert>
 
 	<update id="update" >
-        UPDATE xxl_job_log_report
-        SET `running_count` = #{runningCount},
-        	`suc_count` = #{sucCount},
-        	`fail_count` = #{failCount}
-        WHERE `trigger_day` = #{triggerDay}
-    </update>
+		UPDATE xxl_job_log_report
+		SET running_count = #{runningCount},
+			suc_count     = #{sucCount},
+			fail_count    = #{failCount}
+		WHERE trigger_day = #{triggerDay}
+	</update>
 
 	<select id="queryLogReport" resultMap="XxlJobLogReport">
 		SELECT <include refid="Base_Column_List" />
